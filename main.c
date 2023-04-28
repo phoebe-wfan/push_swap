@@ -64,7 +64,7 @@ static void	initstack(t_list **stack, int argc, char **argv)
 	char	**args;
 	int		i;
 
-	i = 0;
+	i = 1;
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else

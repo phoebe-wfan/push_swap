@@ -14,7 +14,7 @@
 
 void	ft_error_exit(char **args)
 {
-	ft_putendl_fd("Error", 1);
+	ft_putendl_fd("Error", 2);
 	ft_free(args);
 	exit(EXIT_FAILURE);
 }
@@ -66,7 +66,7 @@ void	ft_check_args(int argc, char **argv)
 	long	tmp;
 	char	**args;	
 
-	i = 0;
+	i = 1;
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else
