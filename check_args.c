@@ -12,6 +12,13 @@
 
 #include "push_swap.h"
 
+void	ft_error_exit(char **args)
+{
+	ft_putendl_fd("Error", 1);
+	ft_free(args);
+    exit(EXIT_FAILURE);
+}
+
 void	print_list(t_list *top)
 {
 	t_list	*tmp;
@@ -71,13 +78,11 @@ void	ft_check_args(int argc, char **argv)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
-			ft_putendl_fd("Error", 1);
+			ft_error_exit(args);
 		if (ft_contains(tmp, args, i))
-			ft_putendl_fd("Error", 1);
+			ft_error_exit(args);
 		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_putendl_fd("Error", 1);
+			ft_error_exit(args);
 		i++;
 	}
-	if (argc == 2)
-		ft_free(args);
 }
