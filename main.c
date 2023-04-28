@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:58:44 by wfan              #+#    #+#             */
-/*   Updated: 2023/04/21 18:14:15 by wfan             ###   ########.fr       */
+/*   Updated: 2023/04/28 16:28:28 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	*ft_atoi_ptr(const char *nptr)
 {
 	int	nbr;
-	int *ptr;
-	
+	int	*ptr;
+
 	nbr = ft_atoi(nptr);
 	ptr = malloc(sizeof(int));
 	*ptr = nbr;

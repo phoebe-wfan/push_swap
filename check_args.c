@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 17:08:58 by wfan              #+#    #+#             */
-/*   Updated: 2023/04/02 17:09:17 by wfan             ###   ########.fr       */
+/*   Updated: 2023/04/28 16:29:03 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_error_exit(char **args)
 {
 	ft_putendl_fd("Error", 1);
 	ft_free(args);
-    exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 void	print_list(t_list *top)
