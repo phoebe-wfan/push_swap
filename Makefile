@@ -39,7 +39,7 @@ $(LIB):
 	@make -C $(LIB_PATH) fclean && make -C $(LIB_PATH)
 
 clean:
-		${RM} ${OBJ}
+		$(RM) $(OBJ)
 		make clean -C $(LIB_PATH)
 
 fclean: clean
