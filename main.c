@@ -57,8 +57,7 @@ void	ft_sort(t_list **stack_a, t_list **stack_b)
 	while (ft_lstsize(*stack_b) != 0)
 		pa(stack_a, stack_b);
 }
-// ./push_swap 1 2 3
-// ./push_swap "1 2 3"
+
 static void	initstack(t_list **stack, int argc, char **argv)
 {
 	t_list	*new;

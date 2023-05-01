@@ -69,7 +69,6 @@ static int	ft_contains(int num, char **argv, int i)
 		return (0);
 	return (-1);
 }*/
-
 static int	ft_isnum(char *num)
 {
 	int	i;
@@ -107,8 +106,8 @@ static int	ft_isnum(char *num)
 long	ft_atolong(const char *nptr)
 {
 	size_t			i;
-	long				nbr;
-	long				sign;
+	long			nbr;
+	long			sign;
 	unsigned char	*str;
 
 	str = (unsigned char *)nptr;
@@ -152,8 +151,8 @@ void	ft_check_args(int argc, char **argv)
 	while (args[i])
 	{
 		tmp = ft_atolong(args[i]);
-		if (!ft_isnum(args[i]) || ft_contains(tmp, args, i) ||
-		(tmp < -2147483648 || tmp > 2147483647))
+		if ((!ft_isnum(args[i])) || ft_contains(tmp, args, i)
+			|| (tmp < -2147483648 || tmp > 2147483647))
 			ft_error_exit(args, argc);
 		i++;
 	}
