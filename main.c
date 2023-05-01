@@ -57,18 +57,22 @@ void	ft_sort(t_list **stack_a, t_list **stack_b)
 	while (ft_lstsize(*stack_b) != 0)
 		pa(stack_a, stack_b);
 }
-
+// ./push_swap 1 2 3
+// ./push_swap "1 2 3"
 static void	initstack(t_list **stack, int argc, char **argv)
 {
 	t_list	*new;
 	char	**args;
 	int		i;
 
-	i = 1;
+	i = 0;
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else
+	{	
+		i = 1;
 		args = argv;
+	}
 	while (args[i])
 	{
 		new = ft_lstnew((void *)ft_atoi_ptr(args[i]));

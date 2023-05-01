@@ -24,7 +24,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I. 
 LDFLAGS 	= -L$(LIB_PATH) -lft 
-DEBUGF 		= #-fsanitize=address -g
+DEBUGF 		= -fsanitize=address -g
 RM = rm -rf
 
 %.o:%.c
