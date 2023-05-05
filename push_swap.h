@@ -22,6 +22,8 @@ int		is_sorted_reverse(t_list **stack);
 void	free_stack(t_list **stack);
 void	ft_free(char **str);
 
+void	sort_5(t_list **stack_a);
+
 void	swap(t_list **stack);
 void	push(t_list **stack_dest, t_list **stack_src);
 void	rotate(t_list **stack);
