@@ -21,7 +21,7 @@ int	get_index(t_list **stack, int nbr)
 	index = 0;
 	ptr = *stack;
 	lstsize = ft_lstsize(ptr);
-	while ((*(int *)(ptr->content)) != n && index < lstsize)
+	while ((*(int *)(ptr->content)) != nbr && index < lstsize)
 		index++;
 	return (index);
 }
