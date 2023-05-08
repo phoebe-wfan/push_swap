@@ -33,10 +33,10 @@ void	sort_3(t_list **stack_a)
 	int		three;
 	t_list	*tmp;
 
-	one = (*stack_a)->content;
-	two = (*stack_a)->next->content;
+	one = *((int *)(*stack_a)->content);
+	two = *((int *)(*stack_a)->next->content);
 	tmp = ft_lstlast(*stack_a);
-	three = tmp->content;
+	three = *((int *)tmp->content);
 	if (one > two && one < three && two < three)
 		sa(stack_a);
 	else if (one < two && two < three && one < three)
@@ -89,7 +89,7 @@ static int	find_b_order_in_a(t_list *stack_a, int elem_b)
 
 	order = 0;
 	len_a = ft_lstsize(stack_a);
-	while (len_a && elem_b > stack_a->content)
+	while (len_a && elem_b > *((int *)stack_a->content))
 	{
 		stack_a = stack_a->next;
 		order++;
@@ -107,7 +107,7 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 	sort_3(stack_a);
 	while (ft_lstsize(*stack_b) > 0)
 	{	
-		order = find_b_order_in_a(*stack_a, (*stack_b)->content);
+		order = find_b_order_in_a(*stack_a, *((int *)(*stack_b)->content));
 		put_in_order(stack_a, stack_b, order);
 	}
 }

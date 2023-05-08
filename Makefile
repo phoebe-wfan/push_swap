@@ -17,7 +17,12 @@ operations_1 \
 operations_2 \
 operations_3 \
 utils \
+index_stack \
+sort_5 \
+sort_complex \
+max_min_mid \
 main \
+log\
 
 OBJ = $(SRC:=.o)
 NAME = push_swap

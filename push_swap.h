@@ -14,6 +14,9 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <stdio.h>
+
+# define CHUNK_MAX 25
 
 void	print_list(t_list *top);
 void	ft_check_args(int argc, char **argv);
@@ -21,8 +24,15 @@ int		is_sorted(t_list **stack);
 int		is_sorted_reverse(t_list **stack);
 void	free_stack(t_list **stack);
 void	ft_free(char **str);
+void	index_stack(t_list **stack);
+int		max(t_list *stack);
+int		min(t_list *stack);
 
-void	sort_5(t_list **stack_a);
+// debug tool
+void print_stack(t_list *node);
+
+void	sort_5(t_list **stack_a, t_list **stack_b);
+void	sort_complex(t_list **a, t_list **b);
 
 void	swap(t_list **stack);
 void	push(t_list **stack_dest, t_list **stack_src);

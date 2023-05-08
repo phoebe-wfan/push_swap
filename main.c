@@ -23,39 +23,12 @@ int	*ft_atoi_ptr(const char *nptr)
 	return (ptr);
 }
 
-static int	get_min_value(t_list **stack)
-{	
-	t_list	*top;
-	int		min;
-
-	top = *stack;
-	min = *((int *)(top->content));
-	while (top)
-	{
-		if (*((int *)(top->content)) < min)
-			min = *((int *)(top->content));
-		top = top->next;
-	}
-	return (min);
-}
-
 void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*top_a;
-	int		min_value;
-
-	top_a = *stack_a;
-	while (ft_lstsize(*stack_a) != 0)
-	{
-		min_value = get_min_value(stack_a);
-		top_a = *stack_a;
-		if (*((int *)(top_a->content)) == min_value)
-			pb(stack_a, stack_b);
-		else
-			ra(stack_a);
-	}
-	while (ft_lstsize(*stack_b) != 0)
-		pa(stack_a, stack_b);
+	if (ft_lstsize(*stack_a) < 6)
+		sort_5(stack_a, stack_b);
+	else
+		sort_complex(*stack_a, *stack_b);
 }
 
 static void	initstack(t_list **stack, int argc, char **argv)
@@ -78,6 +51,9 @@ static void	initstack(t_list **stack, int argc, char **argv)
 		ft_lstadd_back(stack, new);
 		i++;
 	}
+	//print_stack(*stack); // debug
+	index_stack(stack);
+	//print_stack(*stack); // debug
 	if (argc == 2)
 		ft_free(args);
 }
