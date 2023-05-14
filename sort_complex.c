@@ -16,15 +16,19 @@ int	closest_above(t_list **a, int n)
 {
 	int	k;
 	int	i;
+	int	top;
+	int	tmp;
 
-	if (a->top < 0 || n > max(a))
+	top = *((int *)ft_lst_content_at(*a, 0));
+	if (top < 0 || n > max(*a))
 		return (n);
 	i = 0;
-	k = max(a);
-	while (i <= a->top)
+	k = max(*a);
+	while (i < ft_lstsize(*a))
 	{
-		if (a->array[i] > n && a->array[i] < k)
-			k = a->array[i];
+		tmp = *((int *)ft_lst_content_at(*a, i));
+		if (tmp > n && tmp < k)
+			k = tmp;
 		i++;
 	}
 	return (k);
@@ -34,7 +38,7 @@ void	n_ops_arg1(void (*f)(t_list **x), t_list **stack, int n)
 {
 	if (n <= 0)
 		return ;
-	f(x);
+	f(stack);
 	n_ops_arg1(f, stack, n - 1);
 }
 
@@ -43,9 +47,9 @@ void	smart_rotate(t_list **stack, int nbr, int is_b)
 	int	find;
 	int	size;
 
-	size = ft_lstsize(stack) - 1;
+	size = ft_lstsize(*stack) - 1;
 	find = size;
-	while (*((int *)ft_lst_content_at(find)) != nbr && find >= 0)
+	while (*((int *)ft_lst_content_at(*stack, find)) != nbr && find >= 0)
 		find--;
 	if (find < 0)
 		return ;
@@ -70,17 +74,30 @@ void	put_in_position(t_list **a, t_list **b)
 	int	top_b;
 	int	to_move;
 
-	top_b = b->array[b->top];
+	top_b = *((int *)ft_lst_content_at(*b, 0));
 	to_move = closest_above(a, top_b);
-	if (to_move == top_b && a->top >= 0)
+	if (to_move == top_b && ft_lstsize(*a) > 0)
 		to_move = min(*a);
-	smart_rotate_a(a, to_move);
-	pa(a, b)
+	smart_rotate(a, to_move, 0);
+	pa(a, b);
+}
+
+int	find_index(t_list *stack, int n)
+{
+	int	i;
+
+	i = ft_lstsize(stack) - 1;
+	while (*((int*)ft_lst_content_at(stack, i)) != n && i >= 0)
+		i--;
+	return (i);
 }
 
 void	sort_part(t_list **a, t_list **b)
 {
-	while (b->top >= 0)
+	int		size;
+
+	size = ft_lstsize(*b);
+	while (size > 0)
 	{
 		move_min_or_max_to_top(b);
 		put_in_position(a, b);
@@ -131,5 +148,5 @@ void	sort_complex(t_list **a, t_list **b)
 		limit_max = limit_min - 1;
 		parts--;
 	}
-	smart_rotate_a(a, min(a));
+	smart_rotate(a, min(*a), 0);
 }

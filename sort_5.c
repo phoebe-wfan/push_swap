@@ -39,7 +39,7 @@ void	sort_3(t_list **stack_a)
 	three = *((int *)tmp->content);
 	if (one > two && one < three && two < three)
 		sa(stack_a);
-	else if (one < two && two < three && one < three)
+	else if (one > two && two > three && one > three)
 	{
 		sa(stack_a);
 		rra(stack_a);

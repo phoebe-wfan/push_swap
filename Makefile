@@ -21,6 +21,7 @@ index_stack \
 sort_5 \
 sort_complex \
 max_min_mid \
+move \
 main \
 log\
 

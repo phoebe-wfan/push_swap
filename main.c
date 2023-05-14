@@ -25,10 +25,13 @@ int	*ft_atoi_ptr(const char *nptr)
 
 void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(*stack_a) < 6)
+	int		size;
+
+	size = ft_lstsize(*stack_a);
+	if (size < 6)
 		sort_5(stack_a, stack_b);
 	else
-		sort_complex(*stack_a, *stack_b);
+		sort_complex(stack_a, stack_b);
 }
 
 static void	initstack(t_list **stack, int argc, char **argv)
