@@ -19,14 +19,14 @@ int	closest_above(t_list **a, int n)
 	int	top;
 	int	tmp;
 
-	top = *((int *)ft_lst_content_at(*a, 0));
+	top = ft_lst_content_at(*a, 0);
 	if (top < 0 || n > max(*a))
 		return (n);
 	i = 0;
 	k = max(*a);
 	while (i < ft_lstsize(*a))
 	{
-		tmp = *((int *)ft_lst_content_at(*a, i));
+		tmp = ft_lst_content_at(*a, i);
 		if (tmp > n && tmp < k)
 			k = tmp;
 		i++;
@@ -34,70 +34,35 @@ int	closest_above(t_list **a, int n)
 	return (k);
 }
 
-void	n_ops_arg1(void (*f)(t_list **x), t_list **stack, int n)
-{
-	if (n <= 0)
-		return ;
-	f(stack);
-	n_ops_arg1(f, stack, n - 1);
-}
-
-void	smart_rotate(t_list **stack, int nbr, int is_b)
-{
-	int	find;
-	int	size;
-
-	size = ft_lstsize(*stack) - 1;
-	find = size;
-	while (*((int *)ft_lst_content_at(*stack, find)) != nbr && find >= 0)
-		find--;
-	if (find < 0)
-		return ;
-	else if (find < size / 2)
-	{
-		if (is_b)
-			n_ops_arg1(&rrb, stack, find + 1);
-		else
-			n_ops_arg1(&rra, stack, find + 1);
-	}
-	else
-	{
-		if (is_b)
-			n_ops_arg1(&rb, stack, size - find);
-		else
-			n_ops_arg1(&ra, stack, size - find);
-	}
-}
-
 void	put_in_position(t_list **a, t_list **b)
 {
 	int	top_b;
 	int	to_move;
 
-	top_b = *((int *)ft_lst_content_at(*b, 0));
+	top_b = ft_lst_content_at(*b, 0);
 	to_move = closest_above(a, top_b);
+	//printf("top_b %d, to_mov %d\n", top_b, to_move);
 	if (to_move == top_b && ft_lstsize(*a) > 0)
 		to_move = min(*a);
-	smart_rotate(a, to_move, 0);
+	smart_rotate_a(a, to_move);
 	pa(a, b);
 }
 
 int	find_index(t_list *stack, int n)
 {
 	int	i;
+	int size;
 
-	i = ft_lstsize(stack) - 1;
-	while (*((int*)ft_lst_content_at(stack, i)) != n && i >= 0)
-		i--;
-	return (i);
+	i = 0;
+	size = ft_lstsize(stack);
+	while (ft_lst_content_at(stack, i) != n && i < size)
+		i++;
+	return (size - i - 1);
 }
 
 void	sort_part(t_list **a, t_list **b)
 {
-	int		size;
-
-	size = ft_lstsize(*b);
-	while (size > 0)
+	while (ft_lstsize(*b) > 0)
 	{
 		move_min_or_max_to_top(b);
 		put_in_position(a, b);
@@ -123,7 +88,7 @@ int	get_parts(t_list *a)
 	int		size;
 
 	size = ft_lstsize(a);
-	parts = (size + 1) / CHUNK_MAX + 1;
+	parts = size / CHUNK_MAX + 1;
 	return (parts);
 }
 
@@ -148,5 +113,5 @@ void	sort_complex(t_list **a, t_list **b)
 		limit_max = limit_min - 1;
 		parts--;
 	}
-	smart_rotate(a, min(*a), 0);
+	smart_rotate_a(a, min(*a));
 }

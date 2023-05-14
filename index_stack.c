@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-void	*ft_lst_content_at(t_list *lst, int index)
+int	ft_lst_content_at(t_list *lst, int index)
 {
 	int	i;
 	int size;
 
 	i = 0;
 	if (!lst)
-		return (NULL);
+		return (-1);
 	size = ft_lstsize(lst);
 	while (i != index && i < size)
 	{
 		lst = lst->next;
 		i++;
 	}
-	return (lst->content);
+	return (*((int *)lst->content));
 }
 
 t_list	*ft_lst_at(t_list *lst, int index)
@@ -76,7 +76,7 @@ int *stack_array_alloc(t_list *stack)
 	array = malloc(size * sizeof(int));
 	while (i < size)
 	{
-		array[i] = *((int *)ft_lst_content_at(stack, i));
+		array[i] = ft_lst_content_at(stack, i);
 		i++;
 	}
 	return (array);
@@ -124,7 +124,7 @@ void	index_stack(t_list **stack)
 	while (i < size)
 	{
 		pos = 0;
-		while (sorted_array[pos] != *((int *)ft_lst_content_at(*stack, i)))
+		while (sorted_array[pos] != ft_lst_content_at(*stack, i))
 			pos++;
 		array_index[i++] = pos;
 	}

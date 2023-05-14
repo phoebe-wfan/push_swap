@@ -42,17 +42,17 @@ void	sort_3(t_list **stack_a)
 	else if (one > two && two > three && one > three)
 	{
 		sa(stack_a);
-		rra(stack_a);
+		rra(stack_a, NULL);
 	}
 	else if (one > two && two < three && one > three)
-		ra(stack_a);
+		ra(stack_a, NULL);
 	else if (one < two && two > three && one < three)
 	{
 		sa(stack_a);
-		ra(stack_a);
+		ra(stack_a, NULL);
 	}
 	else if (one < two && two > three && one > three)
-		rra(stack_a);
+		rra(stack_a, NULL);
 }
 
 static void	put_in_order(t_list **stack_a, t_list **stack_b, int order)
@@ -63,22 +63,22 @@ static void	put_in_order(t_list **stack_a, t_list **stack_b, int order)
 		sa(stack_a);
 	else if (order == ft_lstsize(*stack_a) - 1)
 	{
-		rra(stack_a);
+		rra(stack_a, NULL);
 		pa(stack_a, stack_b);
-		ra(stack_a);
-		ra(stack_a);
+		ra(stack_a, NULL);
+		ra(stack_a, NULL);
 	}
 	else if (order == ft_lstsize(*stack_a))
 	{
 		pa(stack_a, stack_b);
-		ra(stack_a);
+		ra(stack_a, NULL);
 	}
 	else if (order != 0)
 	{
-		ra(stack_a);
+		ra(stack_a, NULL);
 		pa(stack_a, stack_b);
 		sa(stack_a);
-		rra(stack_a);
+		rra(stack_a, NULL);
 	}
 }
 

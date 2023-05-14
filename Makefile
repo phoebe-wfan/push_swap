@@ -22,6 +22,7 @@ sort_5 \
 sort_complex \
 max_min_mid \
 move \
+smart \
 main \
 log\
 

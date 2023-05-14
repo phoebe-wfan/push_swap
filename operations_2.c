@@ -37,8 +37,9 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	ft_putendl_fd("pb", 1);
 }
 
-void	ra(t_list **stack_a)
+void	ra(t_list **stack_a, t_list **stack_b)
 {
+	(void)stack_b;
 	rotate(stack_a);
 	ft_putendl_fd("ra", 1);
 }

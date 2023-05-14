@@ -27,11 +27,12 @@ void	ft_free(char **str);
 void	index_stack(t_list **stack);
 int		max(t_list *stack);
 int		min(t_list *stack);
-void	*ft_lst_content_at(t_list *lst, int index);
+int		ft_lst_content_at(t_list *lst, int index);
 t_list	*ft_lst_at(t_list *lst, int index);
 void	move_min_or_max_to_top(t_list **b);
 void	move_to_top(t_list **a, int min, int max);
-void	smart_rotate(t_list **stack, int nbr, int is_b);
+void	smart_rotate_a(t_list **a, int n);
+void	smart_rotate_b(t_list **b, int n);
 int		find_index(t_list *stack, int n);
 
 // debug tool
@@ -50,10 +51,10 @@ void	sb(t_list **stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
-void	ra(t_list **stack_a);
-void	rb(t_list **stack_b);
+void	ra(t_list **stack_a, t_list **stack_b);
+void	rb(t_list **stack_a, t_list **stack_b);
 void	rr(t_list **stack_b, t_list **stack_a);
-void	rra(t_list **stack_a);
-void	rrb(t_list **stack_b);
+void	rra(t_list **stack_a, t_list **stack_b);
+void	rrb(t_list **stack_a, t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 #endif

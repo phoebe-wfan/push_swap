@@ -15,12 +15,12 @@
 void print_stack(t_list *node)
 {
 	t_list *tmp;
-	printf("print stack: ");
+	printf("/---------------print stack: \n");
 	tmp = node;
 	while (tmp)
 	{
 		printf("%d ", *((int *)tmp->content));
 		tmp = tmp->next;
 	}
-	printf("\n print stack\n");
+	printf("\nprint stack----------------/\n");
 }

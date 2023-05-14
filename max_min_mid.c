@@ -14,11 +14,9 @@
 
 int	max(t_list *stack)
 {
-	int size;
 	int	tmp;
 
-	size = ft_lstsize(stack);
-	if (size == 1)
+	if (!stack->next)
 		return (*((int *)stack->content));
 	else
 	{
@@ -32,11 +30,9 @@ int	max(t_list *stack)
 
 int	min(t_list *stack)
 {
-	int size;
 	int	tmp;
 
-	size = ft_lstsize(stack);
-	if (size == 1)
+	if (!stack->next)
 		return (*((int *)stack->content));
 	else
 	{
