@@ -1,0 +1,4 @@
+Push Swap is an introductory algorithmic project in the ecole 42 curriculum. It presents a challenging task for beginners like me. I started working on this project two months ago and initially approached it with a method of "finding the smallest value in stack A and pushing it to stack B, repeating this process until stack B is completely sorted, and then pushing everything back to stack A." Although this method worked, it was evident that it was far from efficient as it exceeded the specified step count by a factor of six.
+
+In an effort to optimize the algorithm, I delved into studying insertion sort. I spent several weeks modifying my program, but unfortunately, I was unable to fix all the bugs. Faced with this setback, I decided to return to the more stable approach of radix sort. With only a few days of implementation, I successfully addressed all the bugs. While it may not achieve the highest possible score, I am already quite satisfied with the outcome.
+
