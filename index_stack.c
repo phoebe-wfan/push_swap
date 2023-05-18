@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:24:30 by wfan              #+#    #+#             */
-/*   Updated: 2023/05/08 15:24:32 by wfan             ###   ########.fr       */
+/*   Updated: 2023/05/18 15:04:11 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_lst_content_at(t_list *lst, int index)
 {
 	int	i;
-	int size;
+	int	size;
 
 	i = 0;
 	if (!lst)
@@ -65,7 +65,7 @@ void	insertion_sort(int array[], int size)
 	}
 }
 
-int *stack_array_alloc(t_list *stack)
+int	*stack_array_alloc(t_list *stack)
 {
 	int		size;
 	int		*array;
@@ -82,7 +82,7 @@ int *stack_array_alloc(t_list *stack)
 	return (array);
 }
 
-static int	*sorted_array_copy(t_list *stack)
+int	*sorted_array_copy(t_list *stack)
 {
 	int		*copy;
 	int		size;
@@ -92,44 +92,3 @@ static int	*sorted_array_copy(t_list *stack)
 	insertion_sort(copy, size);
 	return (copy);
 }
-
-void	array_copy_stack(t_list *stack, int *array)
-{
-	int		i;
-	int		size;
-	t_list	*tmp;
-
-	i = 0;
-	size = ft_lstsize(stack);
-	while (i < size)
-	{
-		tmp = ft_lst_at(stack, i);
-		*((int *)tmp->content) = array[i];
-		i++;
-	}
-}
-
-void	index_stack(t_list **stack)
-{
-	int		*sorted_array;
-	int		i;
-	int		pos;
-	int		*array_index;
-	int		size;
-
-	i = 0;
-	size = ft_lstsize(*stack);
-	array_index = stack_array_alloc(*stack);
-	sorted_array = sorted_array_copy(*stack);
-	while (i < size)
-	{
-		pos = 0;
-		while (sorted_array[pos] != ft_lst_content_at(*stack, i))
-			pos++;
-		array_index[i++] = pos;
-	}
-	array_copy_stack(*stack, array_index);
-	free(sorted_array);
-	free(array_index);
-}
-

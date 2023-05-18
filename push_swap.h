@@ -16,8 +16,6 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-# define CHUNK_MAX 25
-
 void	print_list(t_list *top);
 void	ft_check_args(int argc, char **argv);
 int		is_sorted(t_list **stack);
@@ -25,15 +23,13 @@ int		is_sorted_reverse(t_list **stack);
 void	free_stack(t_list **stack);
 void	ft_free(char **str);
 void	index_stack(t_list **stack);
-int		max(t_list *stack);
-int		min(t_list *stack);
 int		ft_lst_content_at(t_list *lst, int index);
 t_list	*ft_lst_at(t_list *lst, int index);
-void	move_min_or_max_to_top(t_list **b);
-void	move_to_top(t_list **a, int min, int max);
-void	smart_rotate_a(t_list **a, int n);
-void	smart_rotate_b(t_list **b, int n);
-int		find_index(t_list *stack, int n);
+void	insertion_sort(int array[], int size);
+int *stack_array_alloc(t_list *stack);
+int	*sorted_array_copy(t_list *stack);
+void	array_copy_stack(t_list *stack, int *array);
+void	index_stack(t_list **stack);
 
 // debug tool
 void print_stack(t_list *node);

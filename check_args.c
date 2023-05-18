@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 17:08:58 by wfan              #+#    #+#             */
-/*   Updated: 2023/05/01 11:39:26 by wfan             ###   ########.fr       */
+/*   Updated: 2023/05/18 14:41:44 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,6 @@ void	ft_error_exit(char **args, int argc)
 	if (argc == 2)
 		ft_free(args);
 	exit(EXIT_FAILURE);
-}
-
-void	print_list(t_list *top)
-{
-	t_list	*tmp;
-
-	tmp = top;
-	while (tmp != NULL)
-	{
-		ft_putnbr_fd(*((int *)(tmp->content)), 1);
-		ft_putendl_fd("", 1);
-		tmp = tmp->next;
-	}
 }
 
 static int	ft_contains(int num, char **argv, int i)
@@ -45,30 +32,6 @@ static int	ft_contains(int num, char **argv, int i)
 	return (0);
 }
 
-/*int	ft_isnum(char *num)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	if (
-		(num[j] == '-' && (num[j + 1] >= '0' && num[j + 1] <= '9'))
-		|| (num[j] >= '0' && num[j] <= '9'))
-	{
-		i++;
-		j++;
-		while (num[j])
-		{
-			if (num[j] >= '0' && num[j] <= '9')
-				i++;
-			j++;
-		}
-	}
-	if (i == ft_strlen(num))
-		return (0);
-	return (-1);
-}*/
 static int	ft_isnum(char *num)
 {
 	int	i;
@@ -92,17 +55,6 @@ static int	ft_isnum(char *num)
 	return (1);
 }
 
-/*int	ft_args_len(char **args)
-{
-	int i;
-
-	i = 0;
-	if (!args)
-		return (0);
-	while (args[i])
-		i++;
-	return (i);
-}*/
 long	ft_atolong(const char *nptr)
 {
 	size_t			i;

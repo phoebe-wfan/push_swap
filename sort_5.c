@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 int	get_index(t_list **stack, int nbr)
 {
 	int		index;
@@ -24,6 +24,46 @@ int	get_index(t_list **stack, int nbr)
 	while ((*(int *)(ptr->content)) != nbr && index < lstsize)
 		index++;
 	return (index);
+}*/
+
+/*void	sort_3(t_list **stack_a)
+{
+	int		one;
+	int		two;
+	int		three;
+	t_list	*tmp;
+
+	one = *((int *)(*stack_a)->content);
+	two = *((int *)(*stack_a)->next->content);
+	tmp = ft_lstlast(*stack_a);
+	three = *((int *)tmp->content);
+	if (one > two && one < three && two < three)
+		sa(stack_a);
+	else if (one > two && two > three && one > three)
+	{
+		sa(stack_a);
+		rra(stack_a, NULL);
+	}
+	else if (one > two && two < three && one > three)
+		ra(stack_a, NULL);
+	else if (one < two && two > three && one < three)
+	{
+		sa(stack_a);
+		ra(stack_a, NULL);
+	}
+	else if (one < two && two > three && one > three)
+		rra(stack_a, NULL);
+}
+*/
+void	sort_2(t_list **stack_a)
+{
+	int		one;
+	int		two;
+
+	one = *((int *)(*stack_a)->content);
+	two = *((int *)(*stack_a)->next->content);
+	if (one > two) 
+		sa(stack_a);
 }
 
 void	sort_3(t_list **stack_a)
@@ -37,7 +77,7 @@ void	sort_3(t_list **stack_a)
 	two = *((int *)(*stack_a)->next->content);
 	tmp = ft_lstlast(*stack_a);
 	three = *((int *)tmp->content);
-	if (one > two && one < three && two < three)
+	if (one > two && one < three && two < three ) 
 		sa(stack_a);
 	else if (one > two && two > three && one > three)
 	{
@@ -102,6 +142,8 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	int	order;
 
+	if (ft_lstsize(*stack_a) == 2)
+		sort_2(stack_a);
 	while (ft_lstsize(*stack_a) > 3)
 		pb(stack_a, stack_b);
 	sort_3(stack_a);

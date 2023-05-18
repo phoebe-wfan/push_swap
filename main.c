@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:58:44 by wfan              #+#    #+#             */
-/*   Updated: 2023/04/28 16:28:28 by wfan             ###   ########.fr       */
+/*   Updated: 2023/05/18 15:06:19 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ static void	initstack(t_list **stack, int argc, char **argv)
 		ft_lstadd_back(stack, new);
 		i++;
 	}
-	//print_stack(*stack); // debug
 	index_stack(stack);
-	//print_stack(*stack); // debug
 	if (argc == 2)
 		ft_free(args);
 }

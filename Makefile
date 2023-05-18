@@ -6,7 +6,7 @@
 #    By: wfan <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/23 14:49:13 by wfan              #+#    #+#              #
-#    Updated: 2023/04/23 14:49:15 by wfan             ###   ########.fr        #
+#    Updated: 2023/05/18 15:10:49 by wfan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,10 @@ operations_2 \
 operations_3 \
 utils \
 index_stack \
+index_stack_2 \
 sort_5 \
 sort_complex \
-max_min_mid \
-move \
-smart \
 main \
-log\
 
 OBJ = $(SRC:=.o)
 NAME = push_swap
